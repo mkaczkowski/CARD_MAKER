@@ -1,0 +1,10 @@
+.idea/
+
+camera-android/www/
+camera-android/platforms/android/*
+!/camera-android/platforms/android/src/
+
+camera-app/.tmp/
+camera-app/bower_components
+camera-app/dist
+camera-app/node_modules

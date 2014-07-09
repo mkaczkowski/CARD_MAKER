@@ -1,0 +1,4 @@
+git init
+git add -A
+git commit -am "comment"
+git push -u origin master
