@@ -15,8 +15,7 @@ sioWebApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('page1', {
             url: '/1',
-            templateUrl: 'views/home.html',
-            controller: "FormCtrl"
+            templateUrl: 'views/home.html'
         })
         .state('page2', {
             url: '/2',

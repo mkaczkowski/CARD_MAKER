@@ -351,13 +351,21 @@ module.exports = function (grunt) {
 				cwd: '<%= yeoman.app %>/styles',
 				dest: '.tmp/styles/',
 				src: '{,*/}*.css'
+			},
+
+			fonts: {
+				expand: true,
+				cwd: '<%= yeoman.app %>/fonts',
+				dest: '.tmp/styles/fonts/',
+				src: '{,*/}*.*'
 			}
 		},
 
 		// Run some tasks in parallel to speed up the build process
 		concurrent: {
 			server: [
-				'copy:styles'
+				'copy:styles',
+				'copy:fonts'
 			],
 			test: [
 				'copy:styles'
@@ -452,19 +460,7 @@ module.exports = function (grunt) {
 					]}
 				}
 			}
-		},
-
-		/*concat:
-		{ contact:
-		{ files:
-				[ { dest: '.tmp/concat/scripts/contact.all.js',
-					src: [ '<%= yeoman.app %>/scripts/contact*//*' ] }
-				] } },
-
-		uglify:
-		{ contact: { dest: 'dist/scripts/contact.all.js',
-			src: [ '.tmp/concat/scripts/contact.all.js' ]
-		}}*/
+		}
 	});
 
 	grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {

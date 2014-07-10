@@ -1,6 +1,6 @@
 <ion-view title="Welcome">
     <ion-nav-buttons side="left">
-        <button class="button" ui-sref="page2">
+        <button class="button" ng-click="savePic()">
             Reset
         </button>
     </ion-nav-buttons>
@@ -10,12 +10,19 @@
         </button>
     </ion-nav-buttons>
     <ion-content padding="true" scrollbar-y="true">
+
+	<!--<div id="container" hidden="hidden"></div>-->
+	<!--<div class="card-text-bold" style=" top: 90px">TEST CZCIONKI3</div>-->
+
+	<!--<div id="container" hidden="hidden"></div>-->
+	<div id="container" style="width: 400px; height: 556px; left: -10px; top: -10px; position: relative;" hidden="hidden"></div>
+
         <div class="list">
             <div class="item item-divider">Basic Info</div>
             <label class="item item-input item-select">
                 <div class="input-label">Type</div>
-                <select>
-                    <option selected value="fire">Fire</option>
+                <select ng-model="data.type">
+                    <option value="fire">Fire</option>
                     <option value="grass">Grass</option>
                     <option value="water">Water</option>
                     <option value="electric">Electric</option>
@@ -28,11 +35,11 @@
             </label>
             <label class="item item-input ">
                 <span class="input-label">Name</span>
-                <input type="text" placeholder="-">
+                <input type="text" placeholder="-" ng-model="data.name" ng-trim="false">
             </label>
             <label class="item item-input ">
                 <span class="input-label">Species</span>
-                <input type="text" placeholder="-">
+                <input type="text" placeholder="-" ng-model="data.species">
             </label>
             <label class="item item-input ">
                 <span class="input-label">Length</span>
@@ -119,8 +126,8 @@
             </label>
             <label class="item item-input item-select">
                 <div class="input-label">Type</div>
-                <select>
-                    <option selected value="fire">Fire</option>
+                <select ng-model="data.cost_type">
+                    <option value="fire">Fire</option>
                     <option value="grass">Grass</option>
                     <option value="water">Water</option>
                     <option value="electric">Electric</option>
@@ -133,8 +140,8 @@
             </label>
             <label class="item item-input item-select">
                 <div class="input-label">Amount</div>
-                <select>
-                    <option selected value="1">1</option>
+                <select ng-model="data.cost_amt">
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
