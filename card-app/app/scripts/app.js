@@ -1,6 +1,10 @@
 'use strict';
 var sioWebApp = angular.module('sioWebApp', [
     'ionic',
+	'ngCordova.plugins.camera',
+	'ngCordova.plugins.dialogs',
+	'ngCordova.plugins.network',
+	'ngCordova.plugins.socialSharing',
     'sioWebApp.config',
     'sioWebApp.mock',
     'sioWebApp.common',

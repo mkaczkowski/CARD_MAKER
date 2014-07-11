@@ -65,25 +65,12 @@ angular.module('sioWebApp.home').controller('HomeCtrl', function ($scope, $ionic
 	};
 
 	$scope.getPicture = function(){
-		cameraService.getPicture("pictureContainer", function(){
-      //      mySharedService.clearAll();
-            $scope.isEmpty = true;
-        });
+		cameraService.getPicture("pictureContainer", function(){ });
 	};
 
-	$scope.clearWhiteboard = function(){
-		notificationService.confirm('Are you sure you want to clear?',
-				function() {
-	//				mySharedService.clearAll();
-					$scope.isEmpty = true;
-				});
-	};
 
 	$scope.loadImage = function(){
-		cameraService.loadImageFromLibrary("pictureContainer",function(){
-  //          mySharedService.clearAll();
-            $scope.isEmpty = true;
-        });
+		cameraService.loadImageFromLibrary("pictureContainer",function(){ });
 	};
 
 //	notificationService.showInitPopup($scope.getPicture,$scope.loadImage);

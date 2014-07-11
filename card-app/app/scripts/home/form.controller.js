@@ -7,27 +7,96 @@
  * # MainCtrl
  * Controller of the sioWebApp
  */
-angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,$compile, $interval, $timeout) {
+angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configuration,logger,$compile, $interval,$ionicLoading, cameraService,
+		imageService,sharingService, notificationService) {
 
-	$scope.data = {
-		name: "megamoth name",
-		species : "some species pmonster",
-		type:'fire',
-		cost_type: 'fire',
-		cost_amt: '2',
-		cost_type2: 'fire',
-		cost_amt2: '4'
+	var LOG = logger.getInstance('FormCtrl');
+
+	var loading;
+	var show = function() { loading = $ionicLoading.show({ content: 'Processing...' }); };
+	var hide = function(){ if(!loading) return; loading.hide(); };
+
+	var defaultData = {
+		name: "",
+		hp: "30",
+		species : "",
+		type:'water',
+		length:'',
+		weight:'',
+		url:'',
+		att1_name : "",
+		att1_info : "",
+		att1_value : "",
+		att1_type : "",
+		att1_amt : "",
+		att2_name : "",
+		att2_info : "",
+		att2_value : "",
+		att2_type : "",
+		att2_amt : "",
+		weakness_type : "",
+		weakness_amt : "",
+		resistance_type: "",
+		resistance_amt:  "",
+		retreat_amt : "",
+		flavor:  "",
+		illustrator: ""
 	}
+
+	$scope.data= angular.copy(defaultData);
 
 	$scope.getNumber = function(num) {
-		return new Array(parseInt(num));
+		if(parseInt(num)){
+			return new Array(parseInt(num));
+		}
+		else{
+			return new Array(0)
+		}
 	}
 
-	$scope.savePic = function(){
+	$scope.getPicture = function(){
+		cameraService.getPicture(function(imageData){
+			$scope.data.url = "data:image/jpeg;base64," + imageData;
+		});
+	};
+
+	$scope.loadImage = function(){
+		cameraService.loadImageFromLibrary(function(imageData){
+			$scope.data.url = "data:image/jpeg;base64," + imageData;
+		});
+	};
+
+
+	$scope.sharePicure = function(){
+		$scope.savePic(function(canvas){
+			sharingService.shareViaFacebook(canvas.toDataURL());
+		});
+	};
+
+	$scope.savePic = function(successHandler){
+		show();
 		var imgElement = $compile('<card-canvas/>')($scope);
 		$scope.compileHtml(imgElement.get(0),function(canvas){
-			var dataUrl = canvas.toDataURL();
-			window.open(dataUrl);
+			if(configuration.isProd){
+				imageService.saveCanvasToFile(canvas,
+						function(msg){
+							hide();
+							if(successHandler){
+								successHandler(canvas)
+							}else{
+								notificationService.savedConfirm(msg,
+										function () {$scope.sharePicure()});
+							}
+						},function(err){
+							hide();
+							LOG.error("savePic err:"+err);
+							notificationService.showError("Ooops. Something went wrong.")
+						});
+			}else{
+				hide();
+				var dataUrl = canvas.toDataURL();
+				window.open(dataUrl);
+			}
 		})
 	};
 
@@ -56,6 +125,37 @@ angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,$compil
 			}, 10);
 		}, 10);
 	}
+
+	$scope.refreshData = function(){
+		$scope.data= angular.copy(defaultData);
+		$scope.refreshAttack();
+	}
+
+	$scope.data.name= "dick lover";
+	$scope.data.hp= "10";
+	$scope.data.species = "cheap porno actor";
+	$scope.data.type='water';
+	$scope.data.length='5\' 2\"';
+	$scope.data.weight='25 lbs.';
+	$scope.data.url="data/images/background.jpg";
+	$scope.data.att1_name = "swallow";
+	$scope.data.att1_info = "I ignored my instincts. And I ignored what I really am. And that won't ever happen again.";
+	$scope.data.att1_value = "10";
+	$scope.data.att1_type = "fire";
+	$scope.data.att1_amt = "2";
+	$scope.data.att2_name = "venereal disease";
+	$scope.data.att2_info = "the best there is at what I do";
+	$scope.data.att2_value = "10";
+	$scope.data.att2_type = "water";
+	$scope.data.att2_amt = "3";
+	$scope.data.weakness_type = "dark";
+	$scope.data.weakness_amt = "+10";
+	$scope.data.resistance_type= "steel";
+	$scope.data.resistance_amt=  "-20";
+	$scope.data.retreat_amt = "1";
+	$scope.data.flavor=  "Tell me something, Jimmy. Do you even know how to kill me?";
+	$scope.data.illustrator=  "Illus. Cartman fat ass";
+
 });
 
 angular.module('sioWebApp.home').directive('cardCanvas', function() {

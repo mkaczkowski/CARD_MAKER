@@ -1,334 +1,326 @@
-<ion-view title="Welcome">
-    <ion-nav-buttons side="left">
-        <button class="button" ng-click="savePic()">
-            Reset
-        </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-        <button class="button" ui-sref="page2">
-            Preview
-        </button>
-    </ion-nav-buttons>
-    <ion-content padding="true" scrollbar-y="true">
+<ion-view title="Card Maker">
+<ion-nav-buttons side="left">
+	<button class="button" ng-click="savePic(null)">
+		save
+	</button>
+	<button class="button" ng-click="sharePicure()">
+		share
+	</button>
+	<button class="button" ng-click="refreshData()">
+		Reset
+	</button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+	<button class="button" ui-sref="page2">
+		Preview
+	</button>
+</ion-nav-buttons>
+<ion-content padding="true" scrollbar-y="true">
 
-	<!--<div id="container" hidden="hidden"></div>-->
-	<!--<div class="card-text-bold" style=" top: 90px">TEST CZCIONKI3</div>-->
+<div id="container" style="width: 400px; height: 556px; left: -10px; top: -10px; position: relative;" hidden="hidden"></div>
 
-	<!--<div id="container" hidden="hidden"></div>-->
-	<div id="container" style="width: 400px; height: 556px; left: -10px; top: -10px; position: relative;" hidden="hidden"></div>
+<div class="list">
+<div class="item item-divider">Basic Info</div>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input ">
+	<span class="input-label">Name</span>
+	<input type="text" placeholder="-" ng-model="data.name" ng-trim="false">
+</label>
 
-        <div class="list">
-            <div class="item item-divider">Basic Info</div>
-            <label class="item item-input item-select">
-                <div class="input-label">Type</div>
-                <select ng-model="data.type">
-                    <option value="fire">Fire</option>
-                    <option value="grass">Grass</option>
-                    <option value="water">Water</option>
-                    <option value="electric">Electric</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="normal">Normal</option>
-                    <option value="steel">Steel</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Name</span>
-                <input type="text" placeholder="-" ng-model="data.name" ng-trim="false">
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Species</span>
-                <input type="text" placeholder="-" ng-model="data.species">
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Length</span>
-                <input type="text" placeholder="0&apos; 0&quot;">
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Weight</span>
-                <input type="text" placeholder="0 lbs.">
-            </label>
-            <div class="item item-input-inset">
-                <label class="item item-input">
-                    <input type="text" placeholder="upload a photo">
-                </label>
-                <button class="button icon icon-left">X</button>
-                <button class="button icon icon-left"></button>
-                <button class="button icon icon-left"></button>
-            </div>
+<label class="item item-input item-select">
+	<div class="input-label">HP</div>
+	<select ng-model="data.hp" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option  ng-repeat="index in [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" value="{{index * 10}}">{{index * 10}}</option>
+	</select>
+</label>
+<label class="item item-input ">
+	<span class="input-label">Species</span>
+	<input type="text" placeholder="-" ng-model="data.species">
+</label>
+<label class="item item-input ">
+	<span class="input-label">Length</span>
+	<input type="text" placeholder="0&apos; 0&quot;" ng-model="data.length">
+</label>
+<label class="item item-input ">
+	<span class="input-label">Weight</span>
+	<input type="text" placeholder="0 lbs." ng-model="data.weight">
+</label>
+<div class="item item-input-inset">
+	<span class="input-label">Photo</span>
+	<div class="button-bar-inline" style="">
+		<button class="button button-light button-medium icon ion-qr-scanner" disabled ng-hide="data.url"></button>
+		<button class="button button-stable button-medium icon ion-checkmark-round" ng-hide="!data.url" disabled></button>
 
-            <div class="item item-divider">Evolves</div>
-            <label class="item item-input item-select">
-                <div class="input-label">Stage</div>
-                <select>
-                    <option selected value="basic">Basic</option>
-                    <option value="stage1">Stage 1</option>
-                    <option value="stage2">Stage 2</option>
-                </select>
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">From</span>
-                <input type="text" placeholder="-">
-            </label>
-            <div class="item item-input-inset">
-                <label class="item item-input">
-                    <input type="text" placeholder="upload a photo">
-                </label>
-                <button class="button icon icon-left">X</button>
-                <button class="button icon icon-left"></button>
-                <button class="button icon icon-left"></button>
-            </div>
-
-
-            <div class="item item-divider">Attack 1</div>
-            <li class="item item-toggle">
-                <span class="input-label">Enabled</span>
-                <label class="toggle toggle-positive">
-                    <input type="checkbox">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <label class="item item-input ">
-                <span class="input-label">Name</span>
-                <input type="text" placeholder="-">
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">Damage</div>
-                <select>
-                    <option selected value=""></option>
-                    <option value="10">10</option>
-                    <option value="10+">10+</option>
-                    <option value="10x">10x</option>
-                    <option value="20">20</option>
-                    <option value="20+">20+</option>
-                    <option value="20x">20x</option>
-                    <option value="30">30</option>
-                    <option value="30+">30+</option>
-                    <option value="30x">30x</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                    <option value="60">60</option>
-                    <option value="70">70</option>
-                    <option value="80">80</option>
-                    <option value="90">90</option>
-                    <option value="100">100</option>
-                    <option value="120">120</option>
-                    <option value="150">150</option>
-                    <option value="200">200</option>
-                </select>
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Info</span>
-                <input type="text" placeholder="-">
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">Type</div>
-                <select ng-model="data.cost_type">
-                    <option value="fire">Fire</option>
-                    <option value="grass">Grass</option>
-                    <option value="water">Water</option>
-                    <option value="electric">Electric</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="normal">Normal</option>
-                    <option value="steel">Steel</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">Amount</div>
-                <select ng-model="data.cost_amt">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </label>
-
-            <div class="item item-divider">Attack 2</div>
-            <li class="item item-toggle">
-                <span class="input-label">Enabled</span>
-                <label class="toggle toggle-positive">
-                    <input type="checkbox">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-
-            <div class="item item-divider">Weakness</div>
-            <label class="item item-input item-select">
-                <div class="input-label">Type</div>
-                <select>
-                    <option selected value="fire">Fire</option>
-                    <option value="grass">Grass</option>
-                    <option value="water">Water</option>
-                    <option value="electric">Electric</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="normal">Normal</option>
-                    <option value="steel">Steel</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">Amount</div>
-                <select>
-                    <option selected value=""></option>
-                    <option value="+10">+10</option>
-                    <option value="+20">+20</option>
-                    <option value="+30">+30</option>
-                    <option value="+40">+40</option>
-                    <option value="x2">x2</option>
-                </select>
-            </label>
-
-            <div class="item item-divider">Resistance</div>
-            <label class="item item-input item-select">
-                <div class="input-label">Type</div>
-                <select>
-                    <option selected value="fire">Fire</option>
-                    <option value="grass">Grass</option>
-                    <option value="water">Water</option>
-                    <option value="electric">Electric</option>
-                    <option value="psychic">Psychic</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="normal">Normal</option>
-                    <option value="steel">Steel</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </label>
-            <label class="item item-input item-select">
-                <div class="input-label">Amount</div>
-                <select>
-                    <option selected value=""></option>
-                    <option value="-10">-10</option>
-                    <option value="-20">-20</option>
-                    <option value="-30">-30</option>
-                    <option value="-40">-40</option>
-                </select>
-            </label>
-
-
-            <div class="item item-divider">Retreat</div>
-            <label class="item item-input item-select">
-                <div class="input-label">Cost</div>
-                <select>
-                    <option selected value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
-                    <option value="1">4</option>
-                </select>
-            </label>
-
-            <div class="item item-divider">Other</div>
-            <label class="item item-input ">
-                <span class="input-label">Flavor</span>
-                <input type="text" placeholder="-">
-            </label>
-            <label class="item item-input ">
-                <span class="input-label">Illustrator</span>
-                <input type="text" placeholder="-">
-            </label>
-<!--
-
-http://www.pokecard.net/
-http://www.pokemoncardapp.com/
-
-Gill Sans - Extrabold (or bold condensed) for the titles, regular for the text.
-
-
-
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password">
-            </label>
-            <div class="item item-input-inset">
-                <label class="item item-input">
-                    <input type="text" placeholder="Search">
-                </label>
-            </div>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="First Name">
-            </label>
-
-
-            <label class="item item-input item-stacked-label padding">
-                <span class="input-label">First Name</span>
-                <div class="list list-inset">
-                    <label class="item item-input">
-                        <input type="text" placeholder="First Name">
-                    </label>
-                    <label class="item item-input">
-                        <input type="text" placeholder="Last Name">
-                    </label>
-                </div>
-            </label>
-
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Email</span>
-                <input type="text" placeholder="john@suhr.com">
-            </label>
-
-            <div class="item item-divider">
-                Candy Bars
-            </div>
-            <ul class="list">
-                <li class="item item-toggle">
-                    HTML5
-                    <label class="toggle toggle-assertive">
-                        <input type="checkbox">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Last Name</span>
-                <div class="list padding">
-                    <label class="item item-radio">
-                        <input type="radio" name="group">
-                        <div class="item-content">
-                            Go
-                        </div>
-                        <i class="radio-icon ion-checkmark"></i>
-                    </label>
-                    <label class="item item-radio">
-                        <input type="radio" name="group">
-                        <div class="item-content">
-                            Go
-                        </div>
-                        <i class="radio-icon ion-checkmark"></i>
-                    </label>
-                </div>
-            </label>
-            <div class="range">
-                <i class="icon ion-volume-low"></i>
-                <input type="range" name="volume">
-                <i class="icon ion-volume-high"></i>
-            </div>
-
-            <ul class="list color-list-demo">
-                <li class="item positive">
-                    <div class="color-demo positive-bg positive-border" style=" width: 50px; height: 50px;"></div>
-                </li>
-            </ul>
--->
-
-        </div>
-        <div class="padding">
-            <button class="button button-block button-positive">Make a card!</button>
-        </div>
-    </ion-content>
-</ion-view>
-
-<!--
-<div data-ng-controller="HomeCtrl" style="margin-top: 45px;" >
+		<button class="button button-medium icon ion-android-camera" style="margin-left: 4px" ng-click="getPicture()"></button>
+		<button class="button button-medium icon ion-android-image" style="margin-left: 4px"  ng-click="loadImage()"></button>
+	</div>
 </div>
--->
+
+<!--ATTACK 1-->
+<div class="item item-divider">Attack 1</div>
+<label class="item item-input ">
+	<span class="input-label">Name</span>
+	<input type="text" placeholder="-" ng-model="data.att1_name">
+</label>
+<label class="item item-input item-select">
+	<div class="input-label" >Damage</div>
+	<select ng-model="data.att1_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value=""></option>
+		<option value="10">10</option>
+		<option value="10+">10+</option>
+		<option value="10x">10x</option>
+		<option value="20">20</option>
+		<option value="20+">20+</option>
+		<option value="20x">20x</option>
+		<option value="30">30</option>
+		<option value="30+">30+</option>
+		<option value="30x">30x</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		<option value="60">60</option>
+		<option value="70">70</option>
+		<option value="80">80</option>
+		<option value="90">90</option>
+		<option value="100">100</option>
+		<option value="120">120</option>
+		<option value="150">150</option>
+		<option value="200">200</option>
+	</select>
+</label>
+<label class="item item-input ">
+	<span class="input-label">Info</span>
+	<textarea rows="2" style=" vertical-align:middle;" placeholder="-" ng-model="data.att1_info"/>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.att1_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Amount</div>
+	<select ng-model="data.att1_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+</label>
+<!-- <div class="item item-divider">Attack 2</div>
+<label class="item item-input ">
+	<span class="input-label">Name</span>
+	<input type="text" placeholder="-" ng-model="data.att2_name">
+</label>
+<label class="item item-input item-select">
+	<div class="input-label" >Damage</div>
+	<select ng-model="data.att2_value">
+		<option value=""></option>
+		<option value="10">10</option>
+		<option value="10+">10+</option>
+		<option value="10x">10x</option>
+		<option value="20">20</option>
+		<option value="20+">20+</option>
+		<option value="20x">20x</option>
+		<option value="30">30</option>
+		<option value="30+">30+</option>
+		<option value="30x">30x</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		<option value="60">60</option>
+		<option value="70">70</option>
+		<option value="80">80</option>
+		<option value="90">90</option>
+		<option value="100">100</option>
+		<option value="120">120</option>
+		<option value="150">150</option>
+		<option value="200">200</option>
+	</select>
+</label>
+<label class="item item-input ">
+	<span class="input-label">Info</span>
+	<textarea rows="2" style=" vertical-align:middle;" placeholder="-" ng-model="data.att2_info"/>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.att2_type">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Amount</div>
+	<select ng-model="data.att2_amt">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+</label> -->
+
+<div class="item item-divider">Attack 2</div>
+<label class="item item-input ">
+	<span class="input-label">Name</span>
+	<input type="text" placeholder="-" ng-model="data.att2_name">
+</label>
+<label class="item item-input item-select">
+	<div class="input-label" >Damage</div>
+	<select ng-model="data.att2_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value=""></option>
+		<option value="10">10</option>
+		<option value="10+">10+</option>
+		<option value="10x">10x</option>
+		<option value="20">20</option>
+		<option value="20+">20+</option>
+		<option value="20x">20x</option>
+		<option value="30">30</option>
+		<option value="30+">30+</option>
+		<option value="30x">30x</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		<option value="60">60</option>
+		<option value="70">70</option>
+		<option value="80">80</option>
+		<option value="90">90</option>
+		<option value="100">100</option>
+		<option value="120">120</option>
+		<option value="150">150</option>
+		<option value="200">200</option>
+	</select>
+</label>
+<label class="item item-input ">
+	<span class="input-label">Info</span>
+	<input type="text" placeholder="-" ng-model="data.att2_info"/>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.att2_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Amount</div>
+	<select ng-model="data.att2_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+</label>
+
+<div class="item item-divider">Weakness</div>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.weakness_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Amount</div>
+	<select ng-model="data.weakness_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value=""></option>
+		<option value="+10">+10</option>
+		<option value="+20">+20</option>
+		<option value="+30">+30</option>
+		<option value="+40">+40</option>
+		<option value="x2">x2</option>
+	</select>
+</label>
+
+<div class="item item-divider">Resistance</div>
+<label class="item item-input item-select">
+	<div class="input-label">Type</div>
+	<select class="select-type" ng-model="data.resistance_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="fire">Fire</option>
+		<option value="grass">Grass</option>
+		<option value="water">Water</option>
+		<option value="electric">Electric</option>
+		<option value="psychic">Psychic</option>
+		<option value="fighting">Fighting</option>
+		<option value="normal">Normal</option>
+		<option value="steel">Steel</option>
+		<option value="dark">Dark</option>
+	</select>
+</label>
+<label class="item item-input item-select">
+	<div class="input-label">Amount</div>
+	<select ng-model="data.resistance_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value=""></option>
+		<option value="-10">-10</option>
+		<option value="-20">-20</option>
+		<option value="-30">-30</option>
+		<option value="-40">-40</option>
+	</select>
+</label>
+
+<div class="item item-divider">Retreat</div>
+<label class="item item-input item-select">
+	<div class="input-label">Cost</div>
+	<select ng-model="data.retreat_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+</label>
+
+<div class="item item-divider">Other</div>
+<label class="item item-input ">
+	<span class="input-label">Flavor</span>
+	<input type="text" placeholder="-" ng-model="data.flavor">
+</label>
+<label class="item item-input ">
+	<span class="input-label">Illustrator</span>
+	<input type="text" placeholder="Illus. " ng-model="data.illustrator">
+</label>
+
+</div>
+<div class="padding">
+	<button class="button button-block button-positive" ui-sref="page2">Make a card!</button>
+</div>
+</ion-content>
+</ion-view>

@@ -1,17 +1,12 @@
-angular.module('sioWebApp.common').factory('notificationService', function($cordovaDialogs, $ionicPopup, $timeout) {
-    var notificationService = {};
+angular.module('sioWebApp.common').factory('notificationService', function($cordovaDialogs, $ionicPopup) {
+	var notificationService = {};
 
-    //$cordovaDialogs.alert('Wow!');
-    //$cordovaDialogs.confirm('Are you sure?');
-    //$cordovaDialogs.prompt('Please Login');
-    // beep 3 times $cordovaDialogs.beep(3);
-
-    notificationService.showError = function(msg) {
-        var alertPopup = $ionicPopup.alert({
-            title: msg,
-            okType: 'button-assertive'
-        });
-    };
+	notificationService.showError = function(msg) {
+		var alertPopup = $ionicPopup.alert({
+			title: msg,
+			okType: 'button-assertive'
+		});
+	};
 
 	notificationService.showInfo = function(msg) {
 		var alertPopup = $ionicPopup.alert({
@@ -20,56 +15,55 @@ angular.module('sioWebApp.common').factory('notificationService', function($cord
 		});
 	};
 
+	notificationService.savedConfirm = function(path, handler1) {
+		return $ionicPopup.showPopup(
+				{
+					title: 'Picture has beed saved!<br>'+path,
+					content:'',
+					buttons: [
+						{
+							text: 'Share' ,
+							type: 'button-positive',
+							onTap: function(e) {
+								handler1();
+								return true;
+							}
+						},
+						{
+							text: 'OK',
+							type: 'button-energized',
+							onTap: function(e) {
+								return true;
+							}
+						}
+					]
+				});
+	};
 
-    notificationService.savedConfirm =function(path, handler1) {
-        return $ionicPopup.showPopup(
-            {
-                title: 'Picture has beed saved!<br>'+path,
-                content:'',
-                buttons: [
-                    {
-                        text: 'Share' ,
-                        type: 'button-positive',
-                        onTap: function(e) {
-                            handler1();
-                            return true;
-                        }
-                    },
-                    {
-                        text: 'OK',
-                        type: 'button-energized',
-                        onTap: function(e) {
-                            return true;
-                        }
-                    }
-                ]
-            });
-    };
-
-    notificationService.confirm =function(msg, successHandler) {
-        return $ionicPopup.showPopup(
-            {
-                title: msg,
-                content:'',
-                buttons: [
-                    {
-                        text: 'Cancel' ,
-                        type: 'button-default',
-                        onTap: function(e) {
-                            return true;
-                        }
-                    },
-                    {
-                        text: 'OK',
-                        type: 'button-energized',
-                        onTap: function(e) {
-                            successHandler();
-                            return true;
-                        }
-                    }
-                ]
-            });
-    };
+	notificationService.confirm = function(msg, successHandler) {
+		return $ionicPopup.showPopup(
+				{
+					title: msg,
+					content:'',
+					buttons: [
+						{
+							text: 'Cancel' ,
+							type: 'button-default',
+							onTap: function(e) {
+								return true;
+							}
+						},
+						{
+							text: 'OK',
+							type: 'button-energized',
+							onTap: function(e) {
+								successHandler();
+								return true;
+							}
+						}
+					]
+				});
+	};
 
 	notificationService.showInitPopup = function(handler1,handler2) {
 		var alertPopup = $ionicPopup.show({
@@ -94,7 +88,7 @@ angular.module('sioWebApp.common').factory('notificationService', function($cord
 		});
 	};
 
-    return notificationService;
+	return notificationService;
 });
 
 

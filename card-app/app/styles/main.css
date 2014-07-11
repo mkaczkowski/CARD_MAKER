@@ -12,6 +12,13 @@
 	font-weight: bold;
 }
 
+@font-face {
+	font-family: 'GillSansItalic';
+	src: url('fonts/GillSansStd-BoldItalic.ttf') format('truetype');
+	font-style: italic;
+	font-weight: bold;
+}
+
 .card-text {
 	position: absolute;
 	font-family: GillSans, sans-serif;
@@ -40,6 +47,8 @@
 	width: 20px;
 	height: 20px;
 }
+
+/*select.select-type option[value="fire"]   { background-image:url('../data/images/fire.png');   }*/
 
 .card-icon.fire{
 	content: url('../data/images/fire.png');

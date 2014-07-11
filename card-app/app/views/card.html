@@ -1,53 +1,81 @@
 <div id="card" style="width: 400px; height:556px; margin: 0px; padding: 0px">
-	<img class="card-background" src="data/images/water_basic.png"/>
+	<img class="card-background" src="data/images/{{::data.type}}_basic.png"/>
 
-	<!--	<div style="position:absolute; font-family: GillSans; top: 150px">TEST CZCIONKI</div>
-		<div style="position:absolute; font-family: GillSansBold; top: 170px">TEST CZCIONKI</div>-->
+	<span style="position:absolute; letter-spacing:0px; font: 27px GillSansBold; left: 47px; top: 37px; width: 100%;" ng-cloak>{{::data.name}}</span>
 
+	<span style="position:absolute; font: bold 23px GillSansBold; left: 279px; top: 39px; width: 100px; color: rgb(247, 53, 53)" ng-cloak>{{::data.hp}} HP</span>
 
+	<img ng-src="{{data.url}}" style="position:absolute; left: 57px; width: 303px; height: 215px; top: 78px;">
+	<span style="position:absolute; font: italic 11px GillSansItalic;  left: 68px; right: -68px; top: 308px; text-align: center" ng-cloak>{{::data.species}}. Length: {{::data.length}}, Weight: {{::data.weight}}</span>
 
-	<span style="position:absolute; font: bold 28px GillSansBold; left: 45px; top: 35px; width: 100%;" ng-cloak>{{::data.name}}</span>
-
-
-	<span style="position:absolute; font: bold 23px GillSansBold; left: 279px; top: 39px; width: 100px; color: rgb(247, 53, 53)" ng-cloak>42 HP</span>
-
-
-	<span style="position:absolute; font: italic bold 11px GillSans;  left: 68px; right: -68px; top: 308px; text-align: center" ng-cloak>{{::data.species}}</span>
-
-	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:334px; left: 35px; background-color: #ffbbbb">
-		<div style="display: table-cell; vertical-align: middle; background-color: #ff5500">
-			<div style="margin-left: auto; margin-right: auto; width:51px; background-color: #ff0000; text-align: center">
-				<img src="data/images/fire.png" style="width: 20px; height: 20px;margin-left: 3px" ng-repeat="i in getNumber(data.cost_amt) track by $index" >
+	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:334px; left: 35px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; width:51px; text-align: center">
+				<img src="data/images/fire.png" style="width: 20px; height: 20px;margin-left: 3px" ng-repeat="i in getNumber(data.att1_amt) track by $index" >
 			</div>
 		</div>
 	</div>
 
-	<div style="display: table; position: absolute; height: 50px; line-height: 14px; top:334px; left: 90px; right: 40px; background-color: #ffbbbb">
-		<div style="display: table-cell; vertical-align: middle; background-color: #ff5500">
-			<div style="margin-left: auto; margin-right: auto; width:100%; background-color: #ff0000; text-align: left">
-				<span style="font: bold 19px GillSansBold;" ng-cloak>attack 1</span>
-				<span style="font: 14px GillSans;" ng-cloak>defsdf  werfwefsdfsd  dad asd asd as13 dasd asd a ser23525 rsfsdfs dfs f fwe </span>
+	<div style="display: table; position: absolute; height: 50px; line-height: 15px; top:334px; left: 90px; width: 245px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; text-align: left">
+				<span style="font: bold 17px GillSansBold;" ng-cloak>{{::data.att1_name}}</span>
+				<span style="font: 15px GillSans; margin-left: 1px" ng-cloak>{{::data.att1_info}}</span>
+			</div>
+		</div>
+	</div>
+	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:334px; right: -100px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
+				<span style="font: 30px GillSans;" ng-cloak>{{::data.att1_value}}</span>
 			</div>
 		</div>
 	</div>
 
-	<hr style="position:absolute;border: 2px solid #090908;top:385px; left: 35px; right: -100px;">
+	<hr style="position:absolute;border: 2px solid #070706;top:385px; left: 35px; right: -100px;">
 
-	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:403px; left: 35px; background-color: #ffbbbb">
-		<div style="display: table-cell; vertical-align: middle; background-color: #ff5500">
-			<div style="margin-left: auto; margin-right: auto; width:51px; background-color: #ff0000; text-align: center">
-				<img src="data/images/water.png" style="width: 20px; height: 20px;margin-left: 3px" ng-repeat="i in getNumber(data.cost_amt2) track by $index" >
+	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:403px; left: 35px; right: 40px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; width:51px; text-align: center">
+				<img src="data/images/water.png" style="width: 20px; height: 20px;margin-left: 3px" ng-repeat="i in getNumber(data.att2_amt) track by $index" >
 			</div>
 		</div>
 	</div>
 
-	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:403px; left: 90px; right: 40px; background-color: #ffbbbb">
-		<div style="display: table-cell; vertical-align: middle; background-color: #ff5500">
-			<div style="margin-left: auto; margin-right: auto; width:100%;background-color: #ff0000; text-align: left">
-				<span style="font: bold 19px GillSansBold;" ng-cloak>attack 2</span>
-				<span style="font: 14px GillSans;" ng-cloak>defsdf  werfwefsdf fsd fsd fwe f3434 34dgdfgdf sd fwe </span>
+	<div style="display: table; position: absolute;  height: 50px; line-height: 15px; top:403px; left: 90px; width: 245px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
+				<span style="font: bold 17px GillSansBold;" ng-cloak>{{::data.att2_name}}</span>
+				<span style="font: 15px GillSans; margin-left: 1px" ng-cloak>{{::data.att2_info}}</span>
 			</div>
 		</div>
 	</div>
+
+	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:403px; right: -100px;">
+		<div style="display: table-cell; vertical-align: middle">
+			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
+				<span style="font: 30px GillSans;" ng-cloak>{{::data.att2_value}}</span>
+			</div>
+		</div>
+	</div>
+
+	<div style="position:absolute;left: 52px;top: 479px; text-align: center">
+		<img src="data/images/{{::data.weakness_type}}.png" style="width: 20px; height: 20px;" >
+		<span style="font: 13px GillSansBold; position: relative; left: -2px; top: -5px;" ng-cloak>{{::data.weakness_amt}}</span>
+	</div>
+
+	<div style="position:absolute;left: 188px;top: 479px; text-align: center">
+		<img src="data/images/{{::data.resistance_type}}.png" style="width: 20px; height: 20px;" >
+		<span style="font: 13px GillSansBold; position: relative; left: -2px; top: -5px;" ng-cloak>{{::data.resistance_amt}}</span>
+	</div>
+
+	<div style="position:absolute;left: 292px;top: 479px; width: 90px; text-align: center;">
+		<img src="data/images/colorless.png" style="width: 20px; height: 20px;margin-left: 1px" ng-repeat="i in getNumber(data.retreat_amt) track by $index" >
+	</div>
+
+
+	<span style="position:absolute; font: italic 11px GillSansItalic; left: 56px; top: 511px; width: 100%;" ng-cloak>{{::data.flavor}}</span>
+
+	<span style="position:absolute; font: 9px GillSansBold; left: 32px; top: 534px; width: 100%;" ng-cloak>{{::data.illustrator}}</span>
 
 </div>
