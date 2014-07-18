@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title></title>
+
+	<!-- build:css(.tmp) styles/main.css -->
+	<link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+	<link rel="stylesheet" href="../bower_components/ionic/release/css/ionic.css" />
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+
+	<style>
+	</style>
+</head>
+
+<body ng-app="sioWebApp" data-ng-controller="AppCtrl" style="height: 100%;">
+<!--<img src="data/wallpaper.jpg" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px">-->
+<div class="slide-left-right"  style="position:absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
+    <div style="height: 100%;width: 100%" ui-view></div>
+</div>
+
+<!-- grunt wiredep:app -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<script src="bower_components/ocLazyLoad/dist/ocLazyLoad.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/ionic/release/js/ionic.js"></script>
+<script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="bower_components/hammerjs/hammer.js"></script>
+<script src="bower_components/jquery-hammerjs/jquery.hammer.js"></script>
+<script src="bower_components/angular-hammer/angular-hammer.js"></script>
+<script src="bower_components/caman/dist/caman.min.js"></script>
+<script src="bower_components/caman/dist/caman.full.min.js"></script>
+<script src="bower_components/fabric/dist/fabric.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<script src="libs/ng-cordova.js"></script>
+<script src="cordova.js"></script>
+<script src="libs/CameraConstants.js"></script>
+<script src="libs/CameraPopoverOptions.js"></script>
+<script src="libs/html2canvas.js"></script>
+
+<!--<script src="libs/fabric.js"></script>-->
+<script src="libs/darkroom.js"></script>
+<script src="libs/darkroom.crop.js"></script>
+<script src="libs/darkroom.rotate.js"></script>
+
+<!-- fileblock:js hammer -->
+<!-- endfileblock -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<!--_main-->
+<script src="scripts/app.js"></script>
+<script src="data/config.js"></script>
+
+<!--home-->
+<script src="scripts/home/home._module.js"></script>
+<script src="scripts/home/app.controller.js"></script>
+<script src="scripts/home/main.controller.js"></script>
+<script src="scripts/home/crop.controller.js"></script>
+<script src="scripts/home/form.controller.js"></script>
+
+<!--_common-->
+<script src="scripts/common/common.module.js"></script>
+<script src="scripts/common/directives/debug.directive.js"></script>
+<script src="scripts/common/data.service.js"></script>
+<script src="scripts/common/util/ny-logger.provider.js"></script>
+
+<script src="scripts/common/network/network.service.js"></script>
+<script src="scripts/common/file/image.service.js"></script>
+<script src="scripts/common/notification/notification.service.js"></script>
+<script src="scripts/common/picture/camera.service.js"></script>
+<script src="scripts/common/sharing/sharing.service.js"></script>
+<!-- endbuild -->
+
+<script>
+	FastClick.attach(document.body, {});
+
+
+	if(!Hammer.HAS_TOUCHEVENTS && !Hammer.HAS_POINTEREVENTS) {
+		Hammer.plugins.showTouches();
+	}
+
+	if(!Hammer.HAS_TOUCHEVENTS && !Hammer.HAS_POINTEREVENTS) {
+		Hammer.plugins.fakeMultitouch();
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'GillSans';
+	src: url('fonts/GillSansStd.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GillSansBold';
+	src: url('fonts/GillSansStd-BoldCondensed.ttf') format('truetype');
+	font-style: normal;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'GillSansItalic';
+	src: url('fonts/GillSansStd-BoldItalic.ttf') format('truetype');
+	font-style: italic;
+	font-weight: bold;
+}
+
+.card-text {
+	position: absolute;
+	font-family: GillSans, sans-serif;
+}
+
+.card-text-bold {
+	position: absolute;
+	font-family: GillSansBold, sans-serif;
+}
+
+
+.card-background{
+	width:400px;
+	height:556px;
+}
+
+.card-background.fire {
+	content: url('../data/images/fire_basic.png');
+}
+
+.card-background.water {
+	content: url('../data/images/water_basic.png');
+}
+
+.card-icon{
+	width: 20px;
+	height: 20px;
+}
+
+.card-icon.fire{
+	content: url('../data/images/fire.png');
+}
+
+.card-icon.water{
+	content: url('../data/images/water.png');
+}

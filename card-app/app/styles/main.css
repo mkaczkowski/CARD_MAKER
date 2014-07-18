@@ -48,8 +48,6 @@
 	height: 20px;
 }
 
-/*select.select-type option[value="fire"]   { background-image:url('../data/images/fire.png');   }*/
-
 .card-icon.fire{
 	content: url('../data/images/fire.png');
 }

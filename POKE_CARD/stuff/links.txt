@@ -1,0 +1,7 @@
+<!--
+
+http://www.pokecard.net/
+http://www.pokemoncardapp.com/
+
+Gill Sans - Extrabold (or bold condensed) for the titles, regular for the text.
+-->

@@ -1,0 +1,29 @@
+{
+    "filters": [
+		{ "name": "1977", "path":"1977.jpg"},
+		{ "name": "brannan", "path":"brannan.jpg"},
+		{ "name": "clarity", "path":"clarity.jpg"},
+		{ "name": "concentrate", "path":"concentrate.jpg"},
+		{ "name": "crossProcess", "path":"crossProcess.jpg"},
+		{ "name": "glowingSun", "path":"glowingSun.jpg"},
+		{ "name": "gotham", "path":"gotham.jpg"},
+		{ "name": "grungy", "path":"grungy.jpg"},
+		{ "name": "hazyDays", "path":"hazyDays.jpg"},
+		{ "name": "hefe", "path":"hefe.jpg"},
+		{ "name": "hemingway", "path":"hemingway.jpg"},
+		{ "name": "herMajesty", "path":"herMajesty.jpg"},
+		{ "name": "jarques", "path":"jarques.jpg"},
+		{ "name": "lomo", "path":"lomo.jpg"},
+		{ "name": "lordkelvin", "path":"lordKelvin.jpg"},
+		{ "name": "love", "path":"love.jpg"},
+		{ "name": "nashville", "path":"nashville.jpg"},
+		{ "name": "nostalgia", "path":"nostalgia.jpg"},
+		{ "name": "oldBoot", "path":"oldBoot.jpg"},
+		{ "name": "orangePeel", "path":"orangePeel.jpg"},
+		{ "name": "pinhole", "path":"pinhole.jpg"},
+		{ "name": "sinCity", "path":"sinCity.jpg"},
+		{ "name": "sunrise", "path":"sunrise.jpg"},
+		{ "name": "vintage", "path":"vintage.jpg"},
+		{ "name": "xpro", "path":"xProII.jpg"}
+    ]
+}

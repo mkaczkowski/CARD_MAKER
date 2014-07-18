@@ -1,20 +1,8 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name sioWebApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the sioWebApp
- */
-angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configuration,logger,$compile, $interval,$ionicLoading, cameraService,
-		imageService,sharingService, notificationService) {
+angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configuration,logger,$compile, $interval) {
 
 	var LOG = logger.getInstance('FormCtrl');
-
-	var loading;
-	var show = function() { loading = $ionicLoading.show({ content: 'Processing...' }); };
-	var hide = function(){ if(!loading) return; loading.hide(); };
 
 	var defaultData = {
 		name: "",
@@ -44,7 +32,6 @@ angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configu
 	}
 
 	$scope.data= angular.copy(defaultData);
-
 	$scope.getNumber = function(num) {
 		if(parseInt(num)){
 			return new Array(parseInt(num));
@@ -53,25 +40,6 @@ angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configu
 			return new Array(0)
 		}
 	}
-
-	$scope.getPicture = function(){
-		cameraService.getPicture(function(imageData){
-			$scope.data.url = "data:image/jpeg;base64," + imageData;
-		});
-	};
-
-	$scope.loadImage = function(){
-		cameraService.loadImageFromLibrary(function(imageData){
-			$scope.data.url = "data:image/jpeg;base64," + imageData;
-		});
-	};
-
-
-	$scope.sharePicure = function(){
-		$scope.savePic(function(canvas){
-			sharingService.shareViaFacebook(canvas.toDataURL());
-		});
-	};
 
 	$scope.savePic = function(successHandler){
 		show();
