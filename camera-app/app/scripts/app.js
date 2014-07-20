@@ -20,8 +20,8 @@ sioWebApp.config(function(loggerProvider,configuration) {
 
 sioWebApp.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
-			.state('/', {
-				url: '/',
+			.state('form', {
+				url: '/form',
 				templateUrl: 'views/form.html',
 				controller: 'FormCtrl'
 			})
@@ -36,7 +36,7 @@ sioWebApp.config(function($stateProvider, $urlRouterProvider) {
 				controller: 'PreviewCtrl'
 			})
 
-	$urlRouterProvider.otherwise("/");
+	$urlRouterProvider.otherwise("form");
 })
 
 sioWebApp.factory('loadingService', function($ionicLoading) {

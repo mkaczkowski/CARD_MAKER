@@ -10,33 +10,6 @@
 angular.module('sioWebApp.home').controller('CropCtrl', function ($scope, notificationService, configuration, logger,$state, dataService, $timeout, admobService) {
     var LOG = logger.getInstance('CropCtrl');
 
-    $scope.crop;
-    $scope.cropImage = function(imageData){
-
-        var canvas = angular.element(document.getElementById("canvasView"));
-        canvas.hide();
-
-        var cropView = angular.element(document.getElementById("cropView"));
-        cropView.show();
-
-        var cropContainer = angular.element(document.getElementById("cropContainer"));
-        cropContainer.attr("src",imageData);
-
-        cropContainer.cropbox({width: cropContainer.width(), height: cropContainer.height(), showControls:'never', maxZoom: 2})
-            .on('cropbox',$scope.resultHandler);
-
-        $scope.crop = cropContainer.data('cropbox');
-    };
-
-    $scope.resultHandler = function( event, results, img ) {
-        dataService.cropDataUrl = img.getDataURL();
-
-        $timeout(function(){
-            $state.go('canvas')
-        },100)
-
-    }
-
     $scope.zoomIn = function( ) {
 //        $scope.crop.zoomIn();
 		$scope.cropPlugin.zoomIn();
@@ -59,12 +32,12 @@ angular.module('sioWebApp.home').controller('CropCtrl', function ($scope, notifi
 //        $scope.crop.mirror();
 		$scope.rotatePlugin.flip();
     }
-    $scope.complete = function( ) {
-//        $scope.crop.complete();
-        dataService.cropDataUrl = $scope.cropPlugin.cropCurrentZone();
+    $scope.complete = function(event) {
+        $scope.cropPlugin.onMouseDown(event);
+        dataService.data.url = $scope.cropPlugin.cropCurrentZone();
         $timeout(function(){
-            $state.go('canvas')
-        },100)
+            $state.go('form')
+        },100);
     }
 
     $scope.goBack = function() {
@@ -95,9 +68,9 @@ angular.module('sioWebApp.home').controller('CropCtrl', function ($scope, notifi
                 maxHeight: clientHeight,
                 plugins: {
                     crop: {
-                        minHeight: clientHeight / 3,
-                        minWidth: clientWidth / 3,
-                        ratio: clientWidth / clientHeight
+                        minHeight: 215 / 3,
+                        minWidth: 304 / 3,
+                        ratio: 304 / 215
                     }
                 },
                 init: function () {

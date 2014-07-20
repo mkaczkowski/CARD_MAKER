@@ -291,7 +291,7 @@
 
 		// Init crop zone
 		onMouseDown: function(event) {
-			if (!this.hasFocus()) {
+    			if (!this.hasFocus()) {
 				return;
 			}
 
@@ -299,14 +299,18 @@
 
 			// recalculate offset, in case canvas was manipulated since last `calcOffset`
 			canvas.calcOffset();
-			var pointer = canvas.getPointer(event.e);
-			var x = pointer.x;
-			var y = pointer.y;
-			var point = new fabric.Point(x, y);
+
+            var pointer, x, y, point;
+            if(event){
+                pointer = canvas.getPointer(event.e);
+                x = pointer.x;
+                y = pointer.y;
+                point = new fabric.Point(x, y);
+            }
 
 			// Check if user want to scale or drag the crop zone.
 			var activeObject = canvas.getActiveObject();
-			if (activeObject === this.cropZone || this.cropZone.containsPoint(point)) {
+			if (activeObject === this.cropZone || (point && this.cropZone.containsPoint(point))) {
 				return;
 			}
 
@@ -433,6 +437,10 @@
 			else
 				this.releaseFocus();
 		},
+
+        hideCrop: function() {
+            this.cropZone.visible = false;
+        },
 
 		cropCurrentZone: function() {
 			if (!this.hasFocus()) {

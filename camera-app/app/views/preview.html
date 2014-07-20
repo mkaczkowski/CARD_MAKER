@@ -1,38 +1,26 @@
-<ion-view title="">
-	<ion-nav-buttons side="right">
-		<button class="button" ng-click="savePic()">SAVE</button>
-		<button class="button">SHARE</button>
-		<button class="button">*</button>
-	</ion-nav-buttons>
-	<ion-content padding="true">
+<div class="bar bar-header bar-light" style="height: 45px;background-color: rgba(255, 255, 255, 0.78)">
+    <div style="width: 100%; text-align: left">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBack()" />
+    </div>
 
-		<div style="width: 100%; height: 100%; position: relative;">
-			<img src="data/images/water_basic.png" style="max-height: 100%; max-width: 100%"/>
-			<span style="position: absolute; top: 0px; left: 0px">12314</span>
-		</div>
-
-		<!--	<div style="position: relative;">
-				<img src="data/images/water_basic.png"/>
-				<span style="position: absolute; top: 0px; left: 0px">12314</span>
-			</div>-->
-
-	</ion-content>
-</ion-view>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>template.ep</title>
-	<link rel="stylesheet" href="Resources/SampleStyle.css"/>
-</head>
-<body><h1 id="documentTitle">template.ep</h1>
-
-<p id="documentMetadata">Exported at: Thu Jul 10 2014 14:27:29 GMT+0200</p>
-
-<div class="Page" id="untitled_page_page"><h2>Untitled Page</h2>
-
-	<div class="ImageContainer"><img width="945" height="861" src="pages%5Cuntitled_page.png" usemap="#map_untitled_page"/></div>
-	<map name="map_untitled_page"></map>
+    <div style="width: 100%; text-align: right">
+        <button class="button button-energized icon ion-thumbsup" style="" ng-click="rateUs()"></button>
+    </div>
 </div>
-</body>
-</html>
+
+<div id="canvas" style="position: absolute; bottom: 55px; top: 45px; left: 0px; right: 10px;">
+    <div style="display: table; width: 100%; height: 100%">
+        <div style="display: table-cell; vertical-align: middle">
+            <div style="margin-left: auto; margin-right: auto;  text-align: center">
+                <img id="pictureContainer" data-ng-src="{{dataUrl}}" style="max-width:{{dataWidth}}px;max-height:{{dataHeight}}px;margin: 0 auto;"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bar bar-footer bar-light" style="height: 55px;padding: 0px">
+    <div class="button-bar" style=" width: 100%;">
+        <button class="button button-balanced icon ion-android-checkmark" ng-click="saveDataUrlToFile(dataUrl)"><span style="font-weight: bold;font-size: 24px; margin-left: 6px;">Save</span></button>
+        <button class="button button-positive icon ion-android-share" ng-click="sharePicure()"><span style="font-weight: bold;font-size: 24px; margin-left: 6px;">Share</span></button>
+    </div>
+</div>

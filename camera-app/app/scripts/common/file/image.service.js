@@ -13,6 +13,15 @@ angular.module('sioWebApp.common').factory('imageService', function(configuratio
 		window.canvas2ImagePlugin.saveImageDataToLibrary(successHandler,faultHandler,canvas);
 	};
 
+    imageService.saveDataUrl = function(canvas, successHandler, faultHandler) {
+        if(!window.canvas2ImagePlugin) {
+            faultHandler()
+            return;
+        }
+
+        window.canvas2ImagePlugin.saveDataUrlToLibrary(successHandler,faultHandler,canvas);
+    };
+
 	imageService.setWallpaper = function(imagePath,successHandler, faultHandler) {
 		var imageTitle = "christmas";                     // Set title of your choice.
 		var folderName = "PluginImages";                  // Set folder Name of your choice.
