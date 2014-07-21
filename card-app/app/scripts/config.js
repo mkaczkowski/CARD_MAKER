@@ -8,6 +8,6 @@ angular.module('sioWebApp.config', [])
 			admobBannerKey : '',
 			admobInterKey : '',
 			admobInter2Key : '',
-			isProd: JSON.parse('true')
+			isProd: JSON.parse('false')
 		}
 );

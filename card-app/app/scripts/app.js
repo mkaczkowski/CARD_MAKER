@@ -29,10 +29,6 @@ sioWebApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/1");
 })
 
-sioWebApp.controller('Page3Ctrl', function($scope) {
-
-    })
-
 
 /*
 sioWebApp.controller('AppCtrl', function ($scope,networkService, configuration) {

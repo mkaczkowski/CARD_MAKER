@@ -1,4 +1,4 @@
-<div class="bar bar-header bar-light" style="height: 45px;font-size: 21px;font-family:cursive;background-color: rgba(255, 255, 255, 0.78)">
+<div class="bar bar-header bar-light" style="height: 45px;font-size: 21px;font-family:cursive;background-color: rgba(255,255,255,0.8);">
 
     <div style="width: 100%; text-align: left">
         <button class="button button-medium icon ion-android-trash"  ng-click="resetData()"></button>
@@ -14,11 +14,11 @@
 
 <div id="container" style="width: 400px; height: 556px; left: 0px; top: 0px; position: relative;" hidden="hidden"></div>
 
-<div style="position:absolute;top:50px; bottom: 70px; left:0px; right:0px;">
+<div style="position:absolute;top:45px; bottom: 54px; left:0px; right:0px;background-color: rgba(255,255,255,0.15);">
 <ion-scroll >
 <div class="list">
 <div class="item item-divider">Basic Info </div>
-<label class="item item-input item-select">
+<label class="item item-input item-select" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
 	<select class="select-type" ng-model="data.type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="fire">Fire</option>
@@ -32,12 +32,12 @@
 		<option value="dark">Dark</option>
 	</select>
 </label>
-<label class="item item-input ">
+<label class="item item-input" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Name</span>
 	<input type="text" placeholder="-" ng-model="data.name" ng-trim="false">
 </label>
 
-<label class="item item-input item-select">
+<label class="item item-input item-select" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">HP</div>
 	<select ng-model="data.hp" style="right: 10px !important; top: 6px !important; position: absolute !important;">
         <option value="30">30</option>
@@ -60,7 +60,7 @@
         <option value="200">200</option>
 	</select>
 </label>
-<div class="item item-input-inset">
+<div class="item item-input-inset" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Photo</span>
 	<div class="button-bar-inline" style="">
 		<!--<button class="button button-balanced button-medium icon ion-checkmark-round" ng-hide="!data.url"></button>-->
@@ -75,15 +75,15 @@
 <div class="item item-divider" style="line-height: 40px">Extra Info
     <ion-toggle ng-model="data.hasAdditional" ng-checked="data.hasAdditional" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input" ng-show="data.hasAdditional">
+<label class="item item-input" ng-show="data.hasAdditional" style="background-color: rgba(255,255,255,0.85);">
     <span class="input-label">Species</span>
     <input type="text" placeholder="-" ng-model="data.species">
 </label>
-<label class="item item-input" ng-show="data.hasAdditional">
+<label class="item item-input" ng-show="data.hasAdditional" style="background-color: rgba(255,255,255,0.85);">
     <span class="input-label">Length</span>
     <input type="text" placeholder="0&apos; 0&quot;" ng-model="data.length">
 </label>
-<label class="item item-input" ng-show="data.hasAdditional">
+<label class="item item-input" ng-show="data.hasAdditional" style="background-color: rgba(255,255,255,0.85);">
     <span class="input-label">Weight</span>
     <input type="text" placeholder="0 lbs." ng-model="data.weight">
 </label>
@@ -92,11 +92,11 @@
 <div class="item item-divider" style="line-height: 40px">Attack 1
     <ion-toggle ng-model="data.hasAttack1" ng-checked="data.hasAttack1" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input" ng-show="data.hasAttack1">
+<label class="item item-input" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Name</span>
 	<input type="text" placeholder="-" ng-model="data.att1_name">
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack1">
+<label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Damage</div>
 	<select ng-model="data.att1_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value=""></option>
@@ -121,11 +121,11 @@
 		<option value="200">200</option>
 	</select>
 </label>
-<label class="item item-input" ng-show="data.hasAttack1">
+<label class="item item-input" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Info</span>
-	<textarea rows="2" style=" vertical-align:middle;" placeholder="-" ng-model="data.att1_info"></textarea>
+	<textarea rows="2" style=" vertical-align:middle;background-color: rgba(255,255,255,0.8)" placeholder="-" ng-model="data.att1_info"></textarea>
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack1">
+<label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
 	<select class="select-type" ng-model="data.att1_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="fire">Fire</option>
@@ -139,7 +139,7 @@
 		<option value="dark">Dark</option>
 	</select>
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack1">
+<label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
 	<select ng-model="data.att1_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="1">1</option>
@@ -153,11 +153,11 @@
     <ion-toggle ng-model="data.hasAttack2" ng-checked="data.hasAttack2" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
 
-<label class="item item-input " ng-show="data.hasAttack2">
+<label class="item item-input " ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Name</span>
 	<input type="text" placeholder="-" ng-model="data.att2_name">
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack2">
+<label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Damage</div>
 	<select ng-model="data.att2_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value=""></option>
@@ -182,12 +182,11 @@
 		<option value="200">200</option>
 	</select>
 </label>
-<label class="item item-input" ng-show="data.hasAttack2">
+<label class="item item-input" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Info</span>
-	<!--<input type="text" placeholder="-" ng-model="data.att2_info"/>-->
-    <textarea rows="2" style=" vertical-align:middle;" placeholder="-" ng-model="data.att2_info"></textarea>
+    <textarea rows="2" style=" vertical-align:middle;background-color: rgba(255,255,255,0.8)" placeholder="-" ng-model="data.att2_info"></textarea>
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack2">
+<label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
 	<select class="select-type" ng-model="data.att2_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="fire">Fire</option>
@@ -201,7 +200,7 @@
 		<option value="dark">Dark</option>
 	</select>
 </label>
-<label class="item item-input item-select" ng-show="data.hasAttack2">
+<label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
 	<select ng-model="data.att2_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="1">1</option>
@@ -215,7 +214,7 @@
 <div class="item item-divider" style="line-height: 40px">Weakness
     <ion-toggle ng-model="data.hasWeakness" ng-checked="data.hasWeakness" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input item-select" ng-show="data.hasWeakness">
+<label class="item item-input item-select" ng-show="data.hasWeakness" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
 	<select class="select-type" ng-model="data.weakness_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="fire">Fire</option>
@@ -229,7 +228,7 @@
 		<option value="dark">Dark</option>
 	</select>
 </label>
-<label class="item item-input item-select" ng-show="data.hasWeakness">
+<label class="item item-input item-select" ng-show="data.hasWeakness" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
 	<select ng-model="data.weakness_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value=""></option>
@@ -244,7 +243,7 @@
 <div class="item item-divider" style="line-height: 40px">Resistance
     <ion-toggle ng-model="data.hasResistance" ng-checked="data.hasResistance" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input item-select" ng-show="data.hasResistance">
+<label class="item item-input item-select" ng-show="data.hasResistance" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
 	<select class="select-type" ng-model="data.resistance_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="fire">Fire</option>
@@ -258,7 +257,7 @@
 		<option value="dark">Dark</option>
 	</select>
 </label>
-<label class="item item-input item-select" ng-show="data.hasResistance">
+<label class="item item-input item-select" ng-show="data.hasResistance" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
 	<select ng-model="data.resistance_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value=""></option>
@@ -272,7 +271,7 @@
 <div class="item item-divider" style="line-height: 40px">Retreat
     <ion-toggle ng-model="data.hasRetreat" ng-checked="data.hasRetreat" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input item-select" ng-show="data.hasRetreat">
+<label class="item item-input item-select" ng-show="data.hasRetreat" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Cost</div>
 	<select ng-model="data.retreat_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
 		<option value="0">0</option>
@@ -286,11 +285,11 @@
 <div class="item item-divider" style="line-height: 40px">Other
     <ion-toggle ng-model="data.hasOther" ng-checked="data.hasOther" style="float: right; border: none; border: none; background-color: rgba(0,0,0,0); display: block;height: 40px;"></ion-toggle>
 </div>
-<label class="item item-input " ng-show="data.hasOther">
+<label class="item item-input " ng-show="data.hasOther" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Flavor</span>
 	<input type="text" placeholder="-" ng-model="data.flavor">
 </label>
-<label class="item item-input " ng-show="data.hasOther">
+<label class="item item-input " ng-show="data.hasOther" style="background-color: rgba(255,255,255,0.85);">
 	<span class="input-label">Illustrator</span>
 	<input type="text" placeholder="Illus. " ng-model="data.illustrator">
 </label>
@@ -299,6 +298,8 @@
 </ion-scroll>
 </div>
 
-<div class="" style="position:absolute; bottom:0px; left:10px; right:10px;">
-	<button class="button button-block button-positive" ng-click="prepareCard()">Make a card!</button>
+<div class="bar bar-footer bar-light" style="background-color: rgba(255,255,255,0.4); height: 55px; padding: 0px;">
+	<div style="padding: 0px 10px 0px 10px; width: 100%; height: 100%">
+		<button class="button button-block button-positive" ng-click="prepareCard()">Make a card!</button>
+	</div>
 </div>

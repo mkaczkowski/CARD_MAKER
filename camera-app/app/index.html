@@ -12,70 +12,63 @@
 	<!-- endbuild -->
 
 	<style>
-        @font-face {
-            font-family: 'GillSans';
-            src: url('fonts/GillSansStd.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+		@font-face {
+			font-family: 'GillSans';
+			src: url('fonts/GillSans.otf') format('opentype');
+			font-weight: normal;
+			font-style: normal;
+		}
 
-        @font-face {
-            font-family: 'GillSansBold';
-            src: url('fonts/GillSansStd-BoldCondensed.ttf') format('truetype');
-            font-style: normal;
-            font-weight: bold;
-        }
+		@font-face {
+			font-family: 'GillSansBold';
+			src: url('fonts/GillSansMTCondensedBold.ttf') format('truetype');
+			font-style: normal;
+			font-weight: bold;
+		}
 
-        @font-face {
-            font-family: 'GillSansItalic';
-            src: url('fonts/GillSansStd-BoldItalic.ttf') format('truetype');
-            font-style: italic;
-            font-weight: bold;
-        }
+		@font-face {
+			font-family: 'FuturaLt';
+			src: url('fonts/FuturaLt.ttf') format('truetype');
+		}
 
-        .card-text {
-            position: absolute;
-            font-family: GillSans, sans-serif;
-        }
+		.card-text {
+			position: absolute;
+			font-family: GillSans, sans-serif;
+		}
 
-        .card-text-bold {
-            position: absolute;
-            font-family: GillSansBold, sans-serif;
-        }
+		.card-text-bold {
+			position: absolute;
+			font-family: GillSansBold, sans-serif;
+		}
 
+		.card-icon{ width: 20px; height: 20px; }
+		.card-icon.colorless { content: url('data/images/colorless.png'); }
+		.card-icon.dark { content: url('data/images/dark.png'); }
+		.card-icon.fighting { content: url('data/images/fighting.png'); }
+		.card-icon.fire { content: url('data/images/fire.png'); }
+		.card-icon.grass { content: url('data/images/grass.png'); }
+		.card-icon.lightning { content: url('data/images/lightning.png'); }
+		.card-icon.psychic { content: url('data/images/psychic.png'); }
+		.card-icon.steel { content: url('data/images/steel.png'); }
+		.card-icon.water { content: url('data/images/water.png'); }
 
-        .card-background{
-            width:400px;
-            height:556px;
-        }
-
-        .card-background.fire {
-            content: url('data/images/fire_basic.png');
-        }
-
-        .card-background.water {
-            content: url('data/images/water_basic.png');
-        }
-
-        .card-icon{
-            width: 20px;
-            height: 20px;
-        }
-
-        .card-icon.fire{
-            content: url('data/images/fire.png');
-        }
-
-        .card-icon.water{
-            content: url('data/images/water.png');
-        }
+		.card-background{ width:400px; height:556px; }
+		.card-background.colorless { content: url('data/images/colorless_basic.png'); }
+		.card-background.dark { content: url('data/images/dark_basic.png'); }
+		.card-background.fighting { content: url('data/images/fighting_basic.png'); }
+		.card-background.fire { content: url('data/images/fire_basic.png'); }
+		.card-background.grass { content: url('data/images/grass_basic.png'); }
+		.card-background.lightning { content: url('data/images/lightning_basic.png'); }
+		.card-background.psychic { content: url('data/images/psychic_basic.png'); }
+		.card-background.steel { content: url('data/images/steel_basic.png'); }
+		.card-background.water { content: url('data/images/water_basic.png'); }
 	</style>
 </head>
 
 <body ng-app="sioWebApp" data-ng-controller="AppCtrl" style="height: 100%;">
-<!--<img src="data/wallpaper.jpg" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px">-->
+<img src="data/wallpaper.jpg" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px">
 <div class="slide-left-right"  style="position:absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
-    <div style="height: 100%;width: 100%" ui-view></div>
+	<div style="height: 100%;width: 100%" ui-view></div>
 </div>
 
 <!-- grunt wiredep:app -->
@@ -115,6 +108,8 @@
 <script src="libs/darkroom.rotate.js"></script>
 
 <!-- fileblock:js hammer -->
+<script src="tmp/hammer.fakemultitouch.js"></script>
+<script src="tmp/hammer.showtouches.js"></script>
 <!-- endfileblock -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->

@@ -13,13 +13,19 @@ angular.module('sioWebApp.common').factory('imageService', function(configuratio
 		window.canvas2ImagePlugin.saveImageDataToLibrary(successHandler,faultHandler,canvas);
 	};
 
-    imageService.saveDataUrl = function(canvas, successHandler, faultHandler) {
+    imageService.saveDataUrl = function(dataUrl, successHandler) {
+		if(!configuration.isProd) {
+			window.open(dataUrl);
+			successHandler("test path");
+			return true
+		}
+
         if(!window.canvas2ImagePlugin) {
             faultHandler()
             return;
         }
 
-        window.canvas2ImagePlugin.saveDataUrlToLibrary(successHandler,faultHandler,canvas);
+        window.canvas2ImagePlugin.saveDataUrlToLibrary(successHandler,dataUrl);
     };
 
 	imageService.setWallpaper = function(imagePath,successHandler, faultHandler) {

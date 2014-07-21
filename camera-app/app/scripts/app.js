@@ -47,7 +47,7 @@ sioWebApp.factory('loadingService', function($ionicLoading) {
 	return loadingService;
 });
 
-sioWebApp.run(function($rootScope,configuration,$ionicPlatform,$state,$timeout,logger,admobService) {
+sioWebApp.run(function($rootScope,configuration,$ionicPlatform,$state,$timeout,logger,admobService,networkService) {
 	var LOG = logger.getInstance('sioWebApp');
 	$rootScope.app = configuration;
 	$ionicPlatform.ready(function() {
@@ -66,4 +66,8 @@ sioWebApp.run(function($rootScope,configuration,$ionicPlatform,$state,$timeout,l
 			window.history.back();
 		}
 	}, 100);
+
+	$rootScope.rateUs = function(){
+		networkService.openMarketURL(configuration.marketUrl)
+	};
 });

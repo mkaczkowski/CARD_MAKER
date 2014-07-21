@@ -1,12 +1,22 @@
-<div id="card" style="width: 400px; height:556px; margin: 0px; padding: 0px">
+<div id="card" style="position:absolute; width:400px; height: 556px; margin: 0px; padding: 0px">
 	<img class="card-background" src="data/images/{{::data.type}}_basic.png"/>
 
-	<span style="position:absolute; letter-spacing:0px; font: 27px GillSansBold; left: 47px; top: 37px; width: 100%;" ng-cloak>{{::data.name}}</span>
+	<span style="position:absolute; font: 30px GillSans; left: 47px; top: 33px; width: 100%;" ng-cloak>{{::data.name}}</span>
 
-	<span style="position:absolute; font: bold 23px GillSansBold; left: 279px; top: 39px; width: 100px; color: rgb(247, 53, 53)" ng-cloak>{{::data.hp}} HP</span>
+	<div style="position:absolute;width: 400px;top: 38px; text-align: right">
+		<div style="position: relative; right: 72px">
+			<span style="font: bold 24px FuturaLt; color: rgb(247, 53, 53)" ng-cloak>{{::data.hp}} HP</span>
+		</div>
+	</div>
 
 	<img ng-src="{{data.url}}" style="position:absolute; left: 57px; width: 303px; height: 215px; top: 78px;">
-	<span style="position:absolute; font: italic 11px GillSansItalic;  left: 68px; right: -68px; top: 308px; text-align: center" ng-cloak>{{::data.species}}. Length: {{::data.length}}, Weight: {{::data.weight}}</span>
+
+	<div style="position:absolute;width: 400px;top: 306px; text-align: center">
+		<div style="position:relative;left:65px;width: 270px;  text-align: center">
+			<span style="font: italic bold 11px FuturaLt;" ng-cloak>{{::data.species}}. Length: {{::data.length}}, Weight: {{::data.weight}}</span>
+		</div>
+	</div>
+
 
 	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:334px; left: 35px;">
 		<div style="display: table-cell; vertical-align: middle">
@@ -16,23 +26,24 @@
 		</div>
 	</div>
 
-	<div style="display: table; position: absolute; height: 50px; line-height: 15px; top:334px; left: 90px; width: 245px;">
+	<div style="display: table; position: absolute; height: 50px; line-height: 15px; top:334px; left: 90px; width: 240px;">
 		<div style="display: table-cell; vertical-align: middle">
 			<div style="margin-left: auto; margin-right: auto; text-align: left">
-				<span style="font: bold 17px GillSansBold;" ng-cloak>{{::data.att1_name}}</span>
-				<span style="font: 15px GillSans; margin-left: 1px" ng-cloak>{{::data.att1_info}}</span>
-			</div>
-		</div>
-	</div>
-	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:334px; right: -100px;">
-		<div style="display: table-cell; vertical-align: middle">
-			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
-				<span style="font: 30px GillSans;" ng-cloak>{{::data.att1_value}}</span>
+				<span style="font: bold 19px GillSansBold;" ng-cloak>{{::data.att1_name}}</span>
+				<span style="font: 15px Arial;position: relative;bottom: 2px;left: 1px" ng-cloak>{{::data.att1_info}}</span>
 			</div>
 		</div>
 	</div>
 
-	<hr style="position:absolute;border: 2px solid #070706;top:385px; left: 35px; right: -100px;" ng-show="data.hasAttack2">
+	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:334px; width: 400px;">
+		<div style="display: table-cell; vertical-align: middle;width: 100%;text-align: right;">
+			<div style="position:relative;right:30px;">
+				<span style="font: 31px GillSans;" ng-cloak>{{::data.att1_value}}</span>
+			</div>
+		</div>
+	</div>
+
+	<div style="position:absolute;left:38px;width: 341px;height:2px;top:395px;background-color: #070706 "></div>
 
 	<div style="display: table; position: absolute; width: 50px; height: 50px;line-height: 14px; top:403px; left: 35px; right: 40px;">
 		<div style="display: table-cell; vertical-align: middle">
@@ -42,19 +53,19 @@
 		</div>
 	</div>
 
-	<div style="display: table; position: absolute;  height: 50px; line-height: 15px; top:403px; left: 90px; width: 245px;" ng-show="data.hasAttack2">
+	<div style="display: table; position: absolute;  height: 50px; line-height: 15px; top:403px; left: 90px; width: 240px;" ng-show="data.hasAttack2">
 		<div style="display: table-cell; vertical-align: middle">
 			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
-				<span style="font: bold 17px GillSansBold;" ng-cloak>{{::data.att2_name}}</span>
-				<span style="font: 15px GillSans; margin-left: 1px" ng-cloak>{{::data.att2_info}}</span>
+				<span style="font: bold 19px GillSansBold;" ng-cloak>{{::data.att2_name}}</span>
+				<span style="font: 15px Arial; position: relative;bottom: 2px;left: 1px" ng-cloak>{{::data.att2_info}}</span>
 			</div>
 		</div>
 	</div>
 
-	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:403px; right: -100px;">
-		<div style="display: table-cell; vertical-align: middle">
-			<div style="margin-left: auto; margin-right: auto; width:100%; text-align: left">
-				<span style="font: 30px GillSans;" ng-cloak>{{::data.att2_value}}</span>
+	<div style="display: table; position: absolute;  height: 50px; line-height: 14px; top:403px; width: 400px;">
+		<div style="display: table-cell; vertical-align: middle;width: 100%;text-align: right;">
+			<div style="position:relative;right:30px;">
+				<span style="font: 31px GillSans;" ng-cloak>{{::data.att2_value}}</span>
 			</div>
 		</div>
 	</div>
@@ -74,8 +85,13 @@
 	</div>
 
 
-	<span style="position:absolute; font: italic 11px GillSansItalic; left: 56px; top: 511px; width: 100%;" ng-cloak>{{::data.flavor}}</span>
+	<div style="position:absolute;width: 400px;top: 511px; text-align: center">
+		<div style="position:relative;left:48px;width: 305px;  text-align: center">
+			<span style="font: bold italic 11px FuturaLt;" ng-cloak>{{::data.flavor}}</span>
+		</div>
+	</div>
 
-	<span style="position:absolute; font: 9px GillSansBold; left: 32px; top: 534px; width: 100%;" ng-cloak>{{::data.illustrator}}</span>
+
+	<span style="position:absolute; font:  9px FuturaLt; left: 32px; top: 533px; width: 100%;" ng-cloak>{{::data.illustrator}}</span>
 
 </div>

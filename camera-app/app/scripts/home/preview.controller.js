@@ -1,49 +1,39 @@
 'use strict';
-
 angular.module('sioWebApp.home').controller('PreviewCtrl', function ($scope,configuration,logger,$timeout, $interval,imageService,sharingService,networkService,
-                                                                     cameraService,dataService,$state,notificationService, loadingService) {
+		cameraService,dataService,$state,notificationService, loadingService, admobService) {
 
-    var LOG = logger.getInstance('PreviewCtrl');
+	var LOG = logger.getInstance('PreviewCtrl');
 
-    $scope.saveCanvasToFile = function(successHandler) {
-        imageService.saveCanvasToFile('canvas',function(canvas,path){
-            if (successHandler) {
-                successHandler(canvas)
-            } else {
-                notificationService.savedConfirm(path, function () { $scope.sharePicure() });
-            }
-        })
-    }
+	$scope.saveCanvasToFile = function(successHandler) {
+		imageService.saveCanvasToFile('canvas',function(canvas,path){
+			if (successHandler) {
+				successHandler(canvas)
+			} else {
+				notificationService.savedConfirm(path, function () { $scope.sharePicure() });
+			}
+		})
+	}
 
-    $scope.saveDataUrlToFile = function(dataUrl,successHandler) {
-        imageService.saveDataUrl(dataUrl,function(canvas,path){
-            if (successHandler) {
-                successHandler(canvas)
-            } else {
-                notificationService.savedConfirm(path, function () { $scope.sharePicure() });
-            }
-        })
-    }
+	$scope.saveDataUrlToFile = function(dataUrl) {
+		imageService.saveDataUrl(dataUrl,function(path){
+			notificationService.savedConfirm(path, function () { $scope.sharePicure() });
+		})
+	}
 
-    $scope.sharePicure = function(){
-        sharingService.shareViaFacebook(dataService.preparedDataUrl);
-    };
+	$scope.sharePicure = function(){
+		sharingService.shareViaFacebook(dataService.preparedDataUrl);
+	};
 
-    $scope.rateUs = function(){
-        networkService.openMarketURL(configuration.marketUrl)
-    };
+	$scope.goBack = function() {
+		$timeout(function(){
+			admobService.showBackToHomeAd()
+		},1000)
+		window.history.back();
+	};
 
-    $scope.goBack = function() {
-        $timeout(function(){
-            admobService.showBackToHomeAd()
-        },1000)
-        window.history.back();
-    };
+	$scope.dataWidth = Math.min(400,document.body.clientWidth - 20);
+	$scope.dataHeight = Math.min(556,document.body.clientHeight - 55 - 45 - 20);
 
-    $scope.dataWidth = Math.min(400,document.body.clientWidth - 20);
-    $scope.dataHeight = Math.min(556,document.body.clientHeight - 55 - 45 - 20);
-
-    $scope.dataUrl = dataService.preparedDataUrl;
-    loadingService.hide();
-
+	$scope.dataUrl = dataService.preparedDataUrl;
+	loadingService.hide();
 });

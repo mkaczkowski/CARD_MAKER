@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configuration,logger,$compile, $interval) {
+angular.module('sioWebApp.home').controller('FormCtrl', function ($scope,configuration,logger,$compile, $interval ,imageService) {
 
 	var LOG = logger.getInstance('FormCtrl');
 

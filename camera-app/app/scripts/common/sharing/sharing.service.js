@@ -4,6 +4,12 @@ angular.module('sioWebApp.common').factory('sharingService', function (configura
 	var shareService = {};
 	shareService.shareViaFacebook = function (image) {
 		LOG.info("shareViaFacebook image:{0}", [image]);
+
+		if(!configuration.isProd) {
+			window.open(image);
+			return true
+		}
+
 		var link = configuration.url;
 		var message = configuration.name;
 		var subject = configuration.name;
@@ -14,10 +20,9 @@ angular.module('sioWebApp.common').factory('sharingService', function (configura
 			},1000);
 		}, function (err) {
 			LOG.error("shareViaFacebook error:{0}", [err]);
-			notificationService.showError("Ooops. Something went wrong.");
+//			notificationService.showError("Ooops. Something went wrong.");
 		});
 	};
 
 	return shareService;
 });
-
