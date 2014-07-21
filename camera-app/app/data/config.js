@@ -1,7 +1,7 @@
 'use strict';
 angular.module('sioWebApp.config', [])
 		.constant('configuration', {
-			name : 'Card Maker',
+			name : 'Poke Card Maker',
 			title : '',
 			buttonBarColor : 'rgba(73, 73, 73, 0.13)',
 			hasPapirus: JSON.parse('false'),

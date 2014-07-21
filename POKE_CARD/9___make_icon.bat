@@ -13,6 +13,6 @@ RMDIR /S /Q platforms\android\res\drawable-port-mdpi
 RMDIR /S /Q platforms\android\res\drawable-port-xdpi
 RMDIR /S /Q platforms\android\res\drawable-port-xhdpi
 
-cordova-gen-icon --icon "..\stuff\icon.png"
+cordova-gen-icon --icon "..\stuff\assets\icon.png"
 cd ..
 pause

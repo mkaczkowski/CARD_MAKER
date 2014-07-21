@@ -1,5 +1,5 @@
 cd /d %~dp0
 cd android
-mklink /d www ..\..\card-app\dist
+mklink /d www ..\..\camera-app\dist
 cd ..
 pause

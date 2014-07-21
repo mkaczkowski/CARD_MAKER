@@ -1,5 +1,5 @@
 cd /d %~dp0
-RMDIR /S /Q ..\card-app\app\data
-mkdir ..\card-app\app\data\
-xcopy /y /S stuff\data ..\card-app\app\data\
+RMDIR /S /Q ..\camera-app\app\data
+mkdir ..\camera-app\app\data\
+xcopy /y /S stuff\data ..\camera-app\app\data\
 pause

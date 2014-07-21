@@ -13,7 +13,7 @@ angular.module('sioWebApp.config', [])
 			admobSaveKey : '',
 			admobShareKey: '',
 			admobBackToHomeKey: '',
-			isProd: JSON.parse('false'),
-			showAds: JSON.parse('false')
+			isProd: JSON.parse('true'),
+			showAds: JSON.parse('true')
 		}
 );

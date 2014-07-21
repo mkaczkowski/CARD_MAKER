@@ -1,5 +1,5 @@
 cd /d %~dp0
-cd ../card-app
+cd ../camera-app
 
 set folder="dist"
 cd /d %folder%
