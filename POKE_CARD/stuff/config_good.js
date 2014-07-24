@@ -1,7 +1,7 @@
 'use strict';
 angular.module('sioWebApp.config', [])
 		.constant('configuration', {
-			name : 'Poke Card Maker',
+			name : 'Card Maker',
 			title : '',
 			buttonBarColor : 'rgba(73, 73, 73, 0.13)',
 			hasPapirus: JSON.parse('false'),
@@ -14,6 +14,6 @@ angular.module('sioWebApp.config', [])
 			admobShareKey: '',
 			admobBackToHomeKey: '',
 			isProd: JSON.parse('true'),
-			showAds: JSON.parse('true')
+			showAds: JSON.parse('false')
 		}
 );

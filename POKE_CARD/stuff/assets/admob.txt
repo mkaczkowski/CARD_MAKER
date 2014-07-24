@@ -1,0 +1,13 @@
+App name: POKE_CARD
+
+Ad unit name: POKE_CARD - BACK TO HOME
+Ad unit ID: ca-app-pub-9064255794056383/5477657559
+
+Ad unit name: POKE_CARD - HOME
+Ad unit ID: ca-app-pub-9064255794056383/4000924357
+
+Ad unit name: POKE_CARD - SAVE
+Ad unit ID: ca-app-pub-9064255794056383/6954390757
+
+Ad unit name: POKE_CARD - SHARE
+Ad unit ID: ca-app-pub-9064255794056383/8431123950

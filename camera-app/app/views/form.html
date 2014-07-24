@@ -7,20 +7,22 @@
 	<h1 class="title" style="font-weight: bold" ng-bind="app.name"></h1>
 
     <div style="width: 100%; text-align: right">
-        <button class="button button-dark icon ion-android-alarm"  ng-click="testData()"></button>
+        <!--<button class="button button-dark icon ion-android-alarm"  ng-click="testData()"></button>-->
         <button class="button button-energized icon ion-thumbsup" style="" ng-click="rateUs()"></button>
     </div>
 </div>
 
 <div id="container" style="width: 400px; height: 556px; left: 0px; top: 0px; position: relative;" hidden="hidden"></div>
 
+<!---->
+		
 <div style="position:absolute;top:45px; bottom: 54px; left:0px; right:0px;background-color: rgba(255,255,255,0.15);">
 <ion-scroll >
 <div class="list">
 <div class="item item-divider">Basic Info </div>
 <label class="item item-input item-select" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
-	<select class="select-type" ng-model="data.type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select class="select-type" ng-model="data.type" style="">
 		<option value="fire">Fire</option>
 		<option value="grass">Grass</option>
 		<option value="water">Water</option>
@@ -39,7 +41,7 @@
 
 <label class="item item-input item-select" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">HP</div>
-	<select ng-model="data.hp" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.hp" style="">
         <option value="30">30</option>
         <option value="40">40</option>
         <option value="50">50</option>
@@ -98,7 +100,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Damage</div>
-	<select ng-model="data.att1_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.att1_value" style="">
 		<option value=""></option>
 		<option value="10">10</option>
 		<option value="10+">10+</option>
@@ -127,7 +129,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
-	<select class="select-type" ng-model="data.att1_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select class="select-type" ng-model="data.att1_type" style="">
 		<option value="fire">Fire</option>
 		<option value="grass">Grass</option>
 		<option value="water">Water</option>
@@ -141,7 +143,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack1" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
-	<select ng-model="data.att1_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.att1_amt" style="">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -159,7 +161,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Damage</div>
-	<select ng-model="data.att2_value" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.att2_value" style="">
 		<option value=""></option>
 		<option value="10">10</option>
 		<option value="10+">10+</option>
@@ -188,7 +190,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
-	<select class="select-type" ng-model="data.att2_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select class="select-type" ng-model="data.att2_type" style="">
 		<option value="fire">Fire</option>
 		<option value="grass">Grass</option>
 		<option value="water">Water</option>
@@ -202,7 +204,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasAttack2" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
-	<select ng-model="data.att2_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.att2_amt" style="">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -216,7 +218,7 @@
 </div>
 <label class="item item-input item-select" ng-show="data.hasWeakness" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
-	<select class="select-type" ng-model="data.weakness_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select class="select-type" ng-model="data.weakness_type" style="">
 		<option value="fire">Fire</option>
 		<option value="grass">Grass</option>
 		<option value="water">Water</option>
@@ -230,7 +232,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasWeakness" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
-	<select ng-model="data.weakness_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.weakness_amt" style="">
 		<option value=""></option>
 		<option value="+10">+10</option>
 		<option value="+20">+20</option>
@@ -245,7 +247,7 @@
 </div>
 <label class="item item-input item-select" ng-show="data.hasResistance" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Type</div>
-	<select class="select-type" ng-model="data.resistance_type" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select class="select-type" ng-model="data.resistance_type" style="">
 		<option value="fire">Fire</option>
 		<option value="grass">Grass</option>
 		<option value="water">Water</option>
@@ -259,7 +261,7 @@
 </label>
 <label class="item item-input item-select" ng-show="data.hasResistance" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Amount</div>
-	<select ng-model="data.resistance_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.resistance_amt" style="">
 		<option value=""></option>
 		<option value="-10">-10</option>
 		<option value="-20">-20</option>
@@ -273,7 +275,7 @@
 </div>
 <label class="item item-input item-select" ng-show="data.hasRetreat" style="background-color: rgba(255,255,255,0.85);">
 	<div class="input-label">Cost</div>
-	<select ng-model="data.retreat_amt" style="right: 10px !important; top: 6px !important; position: absolute !important;">
+	<select ng-model="data.retreat_amt" style="">
 		<option value="0">0</option>
 		<option value="1">1</option>
 		<option value="2">2</option>

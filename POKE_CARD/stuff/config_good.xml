@@ -4,8 +4,8 @@
     <description>
         Poke Card Maker
     </description>
-    <author email="marian.mandaryn@onet.pl" href="http://camapps.com/">
-      CardAps
+    <author email="giovani.mandaryn@onet.pl" href="http://cardapps.com/">
+      CardApps
     </author>
     <content src="index.html" />
     <access origin="*" />

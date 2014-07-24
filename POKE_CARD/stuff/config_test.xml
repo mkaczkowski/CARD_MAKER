@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cardapps.poke" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cardapp.poke" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>poke card</name>
     <description>
         poke card
     </description>
-    <author email="marian.mandary@onet.pl" href="http://camapp.com/">
-      CardAps
+    <author email="giovani.mandary@onet.pl" href="http://cardapp.com/">
+      CardApp
     </author>
     <content src="index.html" />
     <access origin="*" />
