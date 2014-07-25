@@ -11,3 +11,11 @@ Ad unit ID: ca-app-pub-9064255794056383/6954390757
 
 Ad unit name: POKE_CARD - SHARE
 Ad unit ID: ca-app-pub-9064255794056383/8431123950
+
+
+
+#######
+SELFIE_CARD
+
+Ad unit name: SELFIE_CARD - HOME
+ca-app-pub-9064255794056383/3763591954
